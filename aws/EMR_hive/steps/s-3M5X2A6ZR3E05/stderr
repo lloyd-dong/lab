@@ -1,0 +1,3 @@
+org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version.
+*** schemaTool failed ***
+Command exiting with ret '0'

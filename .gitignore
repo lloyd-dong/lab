@@ -1,0 +1,16 @@
+*.pyc
+.*.swp
+*.log
+*~
+build/
+MANIFEST
+.DS_Store
+.coverage
+
+think_stats/data/
+think_stats/*.pdf
+think_stats/output/
+
+*.gz
+
+*.out

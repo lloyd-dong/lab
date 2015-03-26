@@ -1,0 +1,608 @@
+#!/usr/bin/ruby
+
+require 'optparse'
+require 'json'
+require 'fileutils'
+
+class File
+  def self.write(filename, content)
+    File.open(filename, "w") do |fp|
+      fp.write(content)
+    end
+  end
+end
+
+class Installer
+  JOBFLOW_INFO_FILE = "/mnt/var/lib/info/job-flow.json"
+  # Map from Hadoop versions to Hive versions
+  SUPPORTED_HIVE_VERSIONS =
+  {
+    "0.18" => ["0.4", "0.5", "0.7", "0.7.1"],
+    "0.20" => ["0.4", "0.5", "0.7", "0.7.1"],
+    "0.20.205" => ["0.7.1", "0.7.1.1", "0.7.1.2", "0.7.1.3", "0.7.1.4", "0.8.1", "0.8.1.1", "0.8.1.2"],
+    "1.0.3" => ["0.8.1", "0.8.1.1", "0.8.1.2", "0.8.1.3", "0.8.1.4", "0.8.1.5", "0.8.1.6", "0.8.1.7", "0.8.1.7-fix", "0.8.1.8", "0.11.0", "0.11.0.1", "0.11.0.2"],
+    "2.0.2" => ["0.11.0", "0.11.0.1", "0.11.0.2"],
+    "2.1.0" => ["0.11.0.1", "0.11.0.2"],
+    "2.2.0" => ["0.11.0.1", "0.11.0.2"],
+    "2.4.0" => ["0.11.0.2"]
+  }
+
+  # For each Hadoop version, what is the latest=default Hive version
+  # that gets installed.
+  LATEST_HIVE_VERSIONS =
+  {
+    "0.18" => "0.7.1",
+    "0.20" => "0.7.1",
+    "0.20.205" => "0.8.1.2",
+    "1.0.3" => "0.11.0.1",
+    "2.0.2" => "0.11.0.1",
+    "2.1.0" => "0.11.0.1",
+    "2.2.0" => "0.11.0.1",
+    "2.4.0" => "0.11.0.2"
+  }
+
+  def initialize
+    parse_arguments
+  end
+
+  def hive_nanny_init_script
+    <<-EOF
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          hive-server-nanny
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Nanny to restart hive server
+# Description:       Nanny to restart hive server
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+function start {
+  killall hive-server-nanny.sh
+  if [ -x /home/hadoop/bin/hive-server-nanny.sh ] ; then
+    echo "Starting Hive Server Nanny as a daemon...."
+    dt=$(date -u +%Y-%m-%d)
+    su - hadoop -c bash -c "/home/hadoop/bin/hive-server-nanny.sh >> /mnt/var/log/apps/hive-server-nanny.log.$dt 2>&1" 2> /dev/null > /dev/null &
+    disown %
+  fi
+}
+
+function stop {
+    killall hive-server-nanny.sh
+}
+
+function reload {
+  echo "Nothing to reload"
+}
+
+
+case $1 in
+    'start' )
+        start
+        ;;
+    'stop' )
+        stop
+        ;;
+    'restart' )
+        stop
+        start
+        ;;
+    'force-reload' )
+        stop
+        start
+        ;;
+    'status' )
+        ;;
+    *)
+        echo "usage: `basename $0` {start|stop|status}"
+esac
+
+exit 0
+    EOF
+  end
+
+  def run
+    begin
+      for action in @actions do
+        determine_hadoop_version
+        determine_hive_version
+        case action[:type]
+        when "install-hive" then
+          if @args.size > 0 then
+            raise "Extra arguments are not permitted for the install-hive operation"
+          end
+          install_hive
+        when "run-hive-script" then
+          run_hive_script
+        when "install-hive-site" then
+          if @args.size > 0 then
+            raise "Extra arguments are not permitted for the install-hive-site operation"
+          end
+          install_hive_site
+        else
+          raise "Unknown action #{action}"
+        end
+      end
+    rescue Exception => e
+      if @debug then
+        error "an exception was raised: #{e.message} at \n#{e.backtrace.join("\n")}"
+      else
+        error e.message
+      end
+      exit(-1)
+    end
+  end
+
+  def parse_arguments
+    @actions = []
+    @args = []
+    @optparse = OptionParser.new do |opts|
+      opts.banner = "Usage: #{$0} options"
+      opts.on("-h", "--help", "Print help text") do
+        puts opts
+        exit -1
+      end
+      opts.on("--base-path=BASE_PATH",      "The location in Amazon S3 to install from") do |base_path|
+        @base_path = base_path
+      end
+      opts.on("--hive-versions=HIVE_VERSIONS",   "A comma separated list of Hive versions") do |hive_versions|
+        @hive_versions = hive_versions
+      end
+      opts.on("--hadoop-version=HADOOP_VERSION", "The Hadoop version to sh  with") do |hadoop_version|
+        @hadoop_version = hadoop_version
+      end
+      opts.on("--install-hive",   "Install Hive ") do |action|
+        @actions << { :type => "install-hive" }
+      end
+      opts.on("--install-hive-site",   "Install Hive Site Config ") do |action|
+        @actions << { :type => "install-hive-site" }
+      end
+      opts.on("--hive-site=HIVE_SITE", "Install a Hive Site Config file") do |hive_site|
+        @hive_site = hive_site
+      end
+      opts.on("--run-hive-script",   "Run a Hive Script") do |action|
+        @actions << { :type => "run-hive-script" }
+      end
+      opts.on("--debug",   "Output debug level messages") do |debug|
+        @debug = debug
+      end
+      opts.on("--consoleOutputPath=CONSOLE_OUTPUT_PATH", "Dfs file path for console output of hive-script") do |consoleOutputPath|
+        @consoleOutputPath = consoleOutputPath
+      end
+      opts.on("--args") do
+        while ARGV.size > 0 do
+          @args << ARGV.shift
+        end
+      end
+    end
+    @optparse.parse!(ARGV)
+
+    if ! @base_path then
+      error "missing required argument base-path"
+    end
+    if @actions.size == 0 then
+      error "no action requested, specify one or more of --install-hive, install-hive-site, hive-script"
+    end
+  end
+
+  def determine_hive_version
+    # No hive_versions given = old Ruby client (pre-versioning).
+    # Install default version - for backwards compatibility.
+    if ! @hive_versions then
+      if @hadoop_version == "0.18" then
+        @hive_versions = "0.4"
+      elsif @hadoop_version == "0.20" then
+        @hive_versions = "0.5"
+      else
+        @hive_versions = "0.7.1.3"
+      end
+    else
+      if @hive_versions == "latest" then
+        # latest = new Ruby client.
+        @hive_versions = LATEST_HIVE_VERSIONS[@hadoop_version]
+      end
+    end
+  end
+
+  def have_credentials
+    # Returns true iff a match is found
+    rval = system 'grep fs.s3n.awsSecretAccessKey /home/hadoop/conf/core-site.xml > /dev/null'
+    rval ||= system 'grep fs.s3n.awsSecretAccessKey /home/hadoop/conf/hadoop-site.xml > /dev/null'
+  end
+  
+  # Direct String comparison does not work correctly for version comparison
+  # Split versions into array of fields and compare each field from left to right as integers, 
+  # in this way, 0.11.0 is higher than 0.8.1.6
+  def higher(a, b)
+    t1 = a.split('.').map{|s|s.to_i}
+    t2 = b.split('.').map{|s|s.to_i}
+    (t1 <=> t2) > 0
+  end
+
+  def verify_hive_version(hadoop_version, hive_version)
+    if ! SUPPORTED_HIVE_VERSIONS[hadoop_version].include?(hive_version) then
+      raise "Hadoop version #{hadoop_version} does not support hive version #{hive_version}"
+    end
+
+    if ! have_credentials and higher("0.8.1.6", hive_version)
+      raise "Hive version #{hive_version} needs AWS credentials to run. Hive 0.8.1.6 or higher is required to use IAM roles."
+    end
+  end
+
+  def get_hadoop_major_version
+    determine_hadoop_version
+    major_version = @hadoop_version[0,1]
+    major_version.to_i
+  end
+
+  def determine_hadoop_version
+    if ! @hadoop_version then
+      if ! File.exist?(JOBFLOW_INFO_FILE) then
+        raise "Missing instance file #{JOBFLOW_INFO_FILE}"
+      else
+        @json = JSON.parse(File.read(JOBFLOW_INFO_FILE))
+        if @json['hadoopVersion'] then
+          @hadoop_version = @json['hadoopVersion']
+        else
+          raise "Missing hadoopVersion entry in #{JOBFLOW_INFO_FILE}"
+        end
+      end
+    end
+    if (SUPPORTED_HIVE_VERSIONS[@hadoop_version].nil?) then
+      raise "Unknown hadoop version: #{@hadoop_version}"
+    end
+  end
+
+  def ln_s(src, dest)
+    info "Linking to #{src} at location #{dest}"
+    if File.exist?(dest) then
+      info "Remove old link at #{dest}"
+      FileUtils.rm(dest)
+    end
+    FileUtils.ln_s(src, dest)
+  end
+
+  # This methods treats 0.7.1 as the major version of 0.7.1.1
+  def major_version(version)
+    tri_version = /[\d]+\.[\d]+\.[\d]+/ 
+    if version =~ tri_version
+      return version.match(tri_version).to_s
+    else 
+      return version
+    end 
+  end
+
+  def find_ami_version
+    version_path = "/etc/ami-version"
+    if !File.exist?(version_path) then
+      return ""
+    end
+
+    return File.open(version_path, "rb").read.gsub("\n", "")
+  end
+
+  def install_pkg(hive_version, hive_major_version)
+    puts "Checking if hive dir exists under /home/hadoop/.versions/hive-#{hive_major_version}"
+    hive_install_dir = File.join("/home/hadoop/.versions/hive-#{hive_major_version}")
+    
+    if File.exists?(hive_install_dir)
+      puts "Hive installation found. Skipping download..."
+      return hive_install_dir
+    end
+
+    tar_file_s3_path = File.join(@base_path, hive_version, "hive-#{hive_version}.tar.bz2")
+    tar_file_local   = retryer(5, lambda {
+      download_file(tar_file_s3_path, :overwrite => true)
+    })
+    
+    sh  "mkdir -p #{hive_install_dir}"
+    sh  "tar -C #{hive_install_dir} -xjf #{tar_file_local}"
+    sh  "echo #{hive_version} > #{hive_install_dir}/version"
+    
+    return hive_install_dir
+  end
+ 
+  def setup_db(hive_db_version, hive_install_dir)
+    if hive_db_version == "05" or hive_db_version == "04" then
+      sh  "echo \"create database if not exists hive CHARACTER SET = 'latin1';\" | mysql -u root"
+    else
+      sh  "echo \"create database if not exists hive_#{hive_db_version} CHARACTER SET = 'latin1';\" | mysql -u root"
+    end
+
+    if hive_db_version != "05" and hive_db_version != "04"  then
+      sh "#{hive_install_dir}/bin/set-hive-config-variables.sh"
+    end
+  end
+
+  def remove_problematic_jar(hive_install_dir)
+    # Removing problematic jar from the package
+    jar_to_remove = "#{hive_install_dir}/lib/javaee-api-*"
+    if Dir.glob(jar_to_remove).count != 0 then
+      sh "rm #{jar_to_remove}"
+    end
+  end
+ 
+  def create_symlink(hive_install_dir, hive_major_version) 
+    #Create symlink for hive_contrib.jar to support backward compatibility
+    ln_s "hive-contrib-#{hive_major_version}.jar",  File.join(hive_install_dir, "lib", "hive_contrib.jar")
+    ln_s File.join(hive_install_dir, "bin", "hive"), "/home/hadoop/bin/hive-#{hive_major_version}"
+    ln_s hive_install_dir, "/home/hadoop/hive"
+    Dir.glob("/home/hadoop/.versions/hive-#{hive_major_version}/bin/*") do |path|
+      ln_s path, File.join("/home/hadoop/bin", File.basename(path))
+    end
+    Dir.glob("/home/hadoop/.versions/hive-#{hive_major_version}/bin/*") do |path|
+      ln_s path, File.join("/home/hadoop/bin", File.basename(path) + "-#{hive_major_version}")
+    end
+  end
+
+  def get_hive_path
+    base_path = "/home/hadoop/.versions"
+    hive_path_pattern = "hive*"
+    hive_paths = Dir.glob("#{base_path}/#{hive_path_pattern}")
+    if hive_paths.count < 1 then
+      raise "No hive installation found"
+    end
+    return hive_paths.first
+  end
+    
+  def setup_hive_server
+    info "Installing the server nanny"
+    FileUtils.mkdir_p("/mnt/tmp")
+    File.write("/mnt/tmp/hive-server-nanny", hive_nanny_init_script)
+    FileUtils.chmod(0555, "/mnt/tmp/hive-server-nanny")
+    sh "sudo mv /mnt/tmp/hive-server-nanny /etc/init.d/hive-server-nanny"
+    sh "sudo /etc/init.d/hive-server-nanny restart"
+
+    amazon_token =`cat /etc/*-release 2>/dev/null | grep 'Amazon'`
+    if amazon_token == "" then
+      sh "sudo update-rc.d -f hive-server-nanny remove"
+      sh "sudo update-rc.d hive-server-nanny defaults 40 60"
+    else
+      sh "sudo chkconfig --del hive-server-nanny"
+      sh "sudo chkconfig --add hive-server-nanny"
+    end
+  end
+
+  def install_hive
+    sh "mkdir -p /mnt/var/log/apps"
+
+    if is_ami_version_file_present? then
+      hive_init_sh = "/home/hadoop/hive/bin/hive-init"
+      puts "Hive is already present, skipping install and running #{hive_init_sh}..."
+      sh "#{hive_init_sh}"
+      puts "Done running hive-init."
+      return
+    end
+      
+    sh "hadoop dfs -mkdir /mnt/var/lib/hadoop/tmp", :ignore_failure => true
+    sh "rm -rf /home/hadoop/hive"
+
+    versions = @hive_versions.split ","
+    if index = versions.map{|version| major_version version}.index("0.5") then
+      if index != (versions.length - 1) then
+        versions[-1], versions[index] = versions[index], versions[-1]
+      end
+    end
+
+    versions.each do |hive_version|
+      verify_hive_version(@hadoop_version, hive_version)
+      hive_major_version = major_version(hive_version)
+      hive_db_version = hive_major_version.gsub('.','')
+      hive_install_dir = install_pkg(hive_version, hive_major_version)
+      setup_db(hive_db_version, hive_install_dir)
+      
+      remove_problematic_jar(hive_install_dir)
+      create_symlink(hive_install_dir, hive_major_version)
+      configure_hbase_for_hive(hive_install_dir)
+      setup_hive_server
+    end
+  end
+
+  class Version < Array
+    def initialize s
+      super(s.split('.').map { |e| e.to_i })
+    end
+    def < x
+      (self <=> x) < 0
+    end
+    def > x
+      (self <=> x) > 0
+    end
+    def == x
+      (self <=> x) == 0
+    end
+  end
+
+  def get_latest_version(paths)
+    if paths.length == 1 then
+      return paths.first
+    end
+
+    max_path = "0.0.0"
+    paths.each do |path|  
+      current_ver = /\d+\.\d+\.\d+/.match(path).to_s 
+      max_ver = /\d+\.\d+\.\d+/.match(max_path).to_s
+      if Version.new(current_ver) > Version.new(max_ver) then
+        max_path = path
+      end
+    end
+    return max_path
+  end
+
+
+  def configure_hbase_for_hive(hive_install_dir)
+    base_path = "/home/hadoop/.versions"
+    hbase_path_pattern = "hbase*"
+    hbase_paths = Dir.glob("#{base_path}/#{hbase_path_pattern}")
+
+    if hbase_paths.length == 0 then
+      return
+    end
+
+    hbase_latest_path = get_latest_version(hbase_paths)
+   
+    sh "rm -f #{hive_install_dir}/lib/hbase*.jar"
+    sh "rm -f #{hive_install_dir}/auxlib/hbase*.jar"
+    
+    sh "cp #{hbase_latest_path}/hbase*.jar  #{hive_install_dir}/lib/", :ignore_failure => true
+    sh "cp #{hbase_latest_path}/hbase*.jar  #{hive_install_dir}/auxlib/", :ignore_failure => true
+    sh "cp #{hbase_latest_path}/lib/hbase*.jar  #{hive_install_dir}/lib/", :ignore_failure => true
+    sh "cp #{hbase_latest_path}/lib/hbase*.jar  #{hive_install_dir}/auxlib/", :ignore_failure => true
+  end
+
+
+  def sh (cmd, opts={})
+    info "Running: #{cmd}"
+    result = system(cmd)
+    if !opts[:ignore_failure] && !result then
+      raise "Error executing cmd: #{cmd}"
+    end
+  end
+
+  def download_file(file, options={})
+    dest = options[:destination] || File.join(Dir.pwd, File.basename(file))
+    if File.exist?(dest) then
+      if options[:overwrite] then
+        info "Removing #{dest}"
+        FileUtils.rm(dest)
+      else
+        raise "Error #{dest} already exists, cannot download #{file}"
+      end
+    end
+    sh "hadoop fs -copyToLocal #{file} #{dest}"
+    return dest
+  end
+
+  def retryer (retries, function1)
+    begin
+      function1.call
+    rescue Exception => e
+      error e.message
+      retries -= 1
+      sh "sleep 10"
+      retryer(retries, function1) if retries > 0
+      raise e
+    end
+  end
+
+  def info(*args)
+    log("INFO", *args)
+  end
+
+  def error(*args)
+    log("ERROR", *args)
+  end
+
+  def spawn_child(cmd)
+    info "Spawning #{cmd}"
+    child_process = fork do
+      exec(cmd)
+    end
+    info "Detaching from #{child_process.inspect}"
+    Process.detach(child_process)
+  end
+
+  def log(level, msg)
+    ENV["TZ"]="GMT"
+    puts Time.now.strftime("%Y-%m-%d %H:%M:%S %Z - ") + level + " " + msg
+  end
+
+  def quote(x)
+    "'" + x.gsub("'", "'\''") + "'"
+  end
+
+  def get_single_hive_version
+    determine_hive_version
+    versions = @hive_versions.split ","
+    if versions.length > 1 then
+      raise "At most one version my be specified for --run-hive-script"
+    elsif versions.first != nil then
+      version = major_version versions.first
+      return version
+    end
+  end
+
+  def is_ami_version_file_present?
+    # ami version file has been unified to /usr/share/aws/emr/util/version. 
+    return File.exist?("/usr/share/aws/emr/util/version")
+  end
+
+  def hive_sh_present?
+    system("hive --version 1>/dev/null")
+    return $?.exitstatus != 127
+  end
+
+  def run_hive_script
+    version = get_single_hive_version
+    if hive_sh_present? then
+        path = "hive"
+    else
+        path = "/home/hadoop/.versions/hive-#{version}/bin/hive"
+    end
+    command = path + " " + @args.map { |x| quote(x) }.join(" ")
+    if (@consoleOutputPath.nil? or @consoleOutputPath.strip.length == 0)
+      sh "#{command}"
+    else
+      tmp_dir = "/mnt/tmp/hive-tmp/"
+      tmp_file = tmp_dir + Time.now.getutc.to_i.to_s
+      stdout_file = tmp_file + ".out"
+      stderr_file = tmp_file + ".err"
+      sh "mkdir -p #{tmp_dir}"
+      sh "touch #{stdout_file}"
+      sh "touch #{stderr_file}"
+
+      begin
+        cmd = "#{command} > >(tee #{stdout_file}) 2> >(tee #{stderr_file} >&2)"
+        bash_cmd = "bash -c \"#{cmd}\""
+        sh bash_cmd
+      ensure
+        copy_file_to_dfs(stderr_file, @consoleOutputPath + ".err")
+        copy_file_to_dfs(stdout_file, @consoleOutputPath + ".out")
+      end
+    end
+  end
+
+  def install_hive_site
+    version = get_single_hive_version
+    if @hive_site == nil then
+      raise "Missing required argument --hive-site"
+    else
+      if `echo ${HIVE_HOME}`.strip != "" then
+        path = `echo ${HIVE_HOME}`.strip + "/conf/hive-site.xml"
+      else 
+        if `cat /etc/ami-version`.strip == "2.4.3" then
+          path = `which hive | xargs readlink -f | xargs dirname | xargs dirname`.strip + "/conf/hive-site.xml"
+        else
+          path =  "/home/hadoop/.versions/hive-#{version}/conf/hive-site.xml"
+        end
+      end
+      retryer(5, lambda {
+      	download_file(@hive_site, :overwrite => true, :destination => path)
+      })
+    end
+  end
+
+  def copy_file_to_dfs (localPath, dfsPath)
+    if localPath.nil? and dfsPath.nil?
+      return
+    end
+      case get_hadoop_major_version
+      when 2
+        dir_name = File.dirname(dfsPath)
+        sh "hadoop fs -mkdir -p #{dir_name}"
+      when 1
+        # hadoop 1.0 creates all parent directories automatically
+      else
+        raise "Unknown/unimplemented hadoop version: " + get_hadoop_major_version.to_s
+      end
+      #Delete if file is already present at destination
+      sh "echo `hadoop fs -test -e #{dfsPath} && hadoop fs -rm #{dfsPath}`"
+      sh "hadoop fs -copyFromLocal #{localPath} #{dfsPath}"
+  end
+end
+
+Installer.new.run

@@ -1,0 +1,79 @@
+2015-01-02T09:52:39.001Z INFO startExec 'hadoop jar /mnt/var/lib/hadoop/steps/s-1FK3R25W6CL3O/script-runner.jar s3://us-west-2.elasticmapreduce/libs/state-pusher/0.1/fetch'
+2015-01-02T09:52:39.016Z INFO Environment:
+  TERM=linux
+  HADOOP_PREFIX=/home/hadoop
+  CONSOLETYPE=serial
+  JAVA_HOME=/usr/java/latest
+  PIG_CONF_DIR=/home/hadoop/pig/conf
+  HBASE_HOME=/home/hadoop/hbase
+  HADOOP_YARN_HOME=/home/hadoop
+  HIVE_HOME=/home/hadoop/hive
+  HADOOP_ROOT_LOGGER=INFO,DRFA
+  YARN_HOME=/home/hadoop
+  MAIL=/var/spool/mail/hadoop
+  IMPALA_CONF_DIR=/home/hadoop/impala/conf
+  PWD=/
+  HOSTNAME=ip-172-31-5-86.us-west-2.compute.internal
+  LESS_TERMCAP_mb=[01;31m
+  LESS_TERMCAP_me=[0m
+  NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
+  LESS_TERMCAP_md=[01;38;5;208m
+  AWS_AUTO_SCALING_HOME=/opt/aws/apitools/as
+  HISTSIZE=1000
+  HADOOP_COMMON_HOME=/home/hadoop
+  HADOOP_LOGFILE=syslog
+  PATH=/home/hadoop/pig/bin:/usr/local/cuda/bin:/usr/java/latest/bin:/home/hadoop/bin:/home/hadoop/mahout/bin:/home/hadoop/hive/bin:/home/hadoop/hbase/bin:/home/hadoop/impala/bin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/sbin:/opt/aws/bin:/home/hadoop/cascading/tools/multitool-20140224/bin:/home/hadoop/cascading/tools/load-20140223/bin:/home/hadoop/cascading/tools/lingual-client/bin:/home/hadoop/cascading/driven/bin
+  HADOOP_LOG_DIR=/mnt/var/log/hadoop/steps/s-1FK3R25W6CL3O
+  HIVE_CONF_DIR=/home/hadoop/hive/conf
+  AWS_DEFAULT_REGION=us-west-2
+  HADOOP_CONF_DIR=/home/hadoop/conf
+  IMPALA_HOME=/home/hadoop/impala
+  SHLVL=5
+  HADOOP_IDENT_STRING=hadoop
+  LANGSH_SOURCED=1
+  XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
+  AWS_CLOUDWATCH_HOME=/opt/aws/apitools/mon
+  UPSTART_JOB=rc
+  HADOOP_HOME_WARN_SUPPRESS=true
+  EC2_AMITOOL_HOME=/opt/aws/amitools/ec2
+  AWS_RDS_HOME=/opt/aws/apitools/rds
+  PIG_CLASSPATH=/home/hadoop/pig/lib
+  LESS_TERMCAP_se=[0m
+  MAHOUT_CONF_DIR=/home/hadoop/mahout/conf
+  LOGNAME=hadoop
+  UPSTART_INSTANCE=
+  HBASE_CONF_DIR=/home/hadoop/hbase/conf
+  YARN_CONF_DIR=/home/hadoop/conf
+  AWS_PATH=/opt/aws
+  _=/usr/java/latest/bin/java
+  HADOOP_HOME=/home/hadoop
+  runlevel=3
+  LD_LIBRARY_PATH=/home/hadoop/lib/native:/usr/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib:
+  UPSTART_EVENTS=runlevel
+  MAHOUT_LOG_DIR=/mnt/var/log/apps
+  previous=N
+  EC2_HOME=/opt/aws/apitools/ec2
+  PIG_HOME=/home/hadoop/pig
+  LESS_TERMCAP_ue=[0m
+  AWS_ELB_HOME=/opt/aws/apitools/elb
+  RUNLEVEL=3
+  USER=hadoop
+  HADOOP_CLIENT_OPTS=-Djava.io.tmpdir=/mnt/var/lib/hadoop/steps/s-1FK3R25W6CL3O/tmp
+  RUBYOPT=rubygems
+  PREVLEVEL=N
+  HADOOP_HDFS_HOME=/home/hadoop
+  HISTCONTROL=ignoredups
+  LESSOPEN=||/usr/bin/lesspipe.sh %s
+  MAHOUT_HOME=/home/hadoop/mahout
+  LANG=en_US.UTF-8
+  LESS_TERMCAP_us=[04;38;5;111m
+  HADOOP_MAPRED_HOME=/home/hadoop
+2015-01-02T09:52:39.017Z INFO redirectOutput to /mnt/var/log/hadoop/steps/s-1FK3R25W6CL3O/stdout
+2015-01-02T09:52:39.022Z INFO redirectError to /mnt/var/log/hadoop/steps/s-1FK3R25W6CL3O/stderr
+2015-01-02T09:52:39.023Z INFO Working dir /mnt/var/lib/hadoop/steps/s-1FK3R25W6CL3O
+2015-01-02T09:52:39.120Z INFO ProcessRunner started child process 3008 :
+hadoop    3008  1922  0 09:52 ?        00:00:00 bash /home/hadoop/bin/hadoop jar /mnt/var/lib/hadoop/steps/s-1FK3R25W6CL3O/script-runner.jar s3://us-west-2.elasticmapreduce/libs/state-pusher/0.1/fetch
+2015-01-02T09:52:39.130Z INFO Synchronously wait child process to complete : hadoop jar /mnt/var/lib/hadoop/steps/s-1FK3R25W...
+2015-01-02T09:52:53.131Z INFO waitProcessCompletion ended with exit code 0 : hadoop jar /mnt/var/lib/hadoop/steps/s-1FK3R25W...
+2015-01-02T09:53:02.734Z INFO Step created jobs: 
+2015-01-02T09:53:02.736Z INFO Step succeeded with exitCode 0 and took 23 seconds
