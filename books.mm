@@ -24,7 +24,7 @@
 <node CREATED="1425529028204" ID="ID_1938829525" MODIFIED="1425529332265" TEXT="&#x4ec0;&#x4e48;&#x4e8b;&#x7edf;&#x8ba1;&#x663e;&#x8457;&#x7684;&#xff1f;statistically significant&#xa;apparent effect"/>
 <node CREATED="1425529153252" ID="ID_1546347003" MODIFIED="1425529201331" TEXT="&#x91cd;&#x65b0;&#x5206;&#x7ec4;&#xff0c;&#x786e;&#x8ba4;&#x662f;&#x5426;&#x7531;&#x4e8e;&#x5206;&#x7ec4;&#x4e0d;&#x540c;&#x5bfc;&#x81f4;&#x7684;&#x7279;&#x4f8b;"/>
 </node>
-<node CREATED="1425525559910" FOLDED="true" ID="ID_1305080934" MODIFIED="1427190911933" TEXT="&#x7b2c;&#x4e8c;&#x7ae0; &#x63cf;&#x8ff0;&#x6027;&#x7edf;&#x8ba1;&#x91cf;">
+<node CREATED="1425525559910" FOLDED="true" ID="ID_1305080934" MODIFIED="1427946147770" TEXT="&#x7b2c;&#x4e8c;&#x7ae0; &#x63cf;&#x8ff0;&#x6027;&#x7edf;&#x8ba1;&#x91cf;">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -39,23 +39,28 @@
   </body>
 </html></richcontent>
 <node CREATED="1425539599978" ID="ID_16778171" MODIFIED="1425539649951" TEXT="mean &#x5747;&#x503c;&#x662f; average &#x7684;&#x4e00;&#x79cd;"/>
-<node CREATED="1425539707651" ID="ID_433108634" MODIFIED="1427190907213" TEXT="&#x65b9;&#x5dee;= &#x6807;&#x51c6;&#x5dee;^2">
-<richcontent TYPE="NOTE"><html>
-  <head>
+<node CREATED="1425539707651" ID="ID_433108634" MODIFIED="1427936282027" TEXT="&#x65b9;&#x5dee;= &#x6807;&#x51c6;&#x5dee;^2">
+<richcontent TYPE="NOTE">&lt;html&gt;
+  &lt;head&gt;
     
-  </head>
-  <body>
-    <div class="page" title="Page 24">
-      <div class="layoutArea">
-        <div class="column">
-          <p>
-            <font face="URWPalladioL" size="12.000000pt"><b><span style="font-family: URWPalladioL; font-size: 12.000000pt; font-weight: 700">variance = standard deviation ^2</span></b></font>
-          </p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html></richcontent>
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;page&quot; title=&quot;Page 24&quot;&gt;
+      &lt;div class=&quot;layoutArea&quot;&gt;
+        &lt;div class=&quot;column&quot;&gt;
+          &lt;p&gt;
+            &lt;b&gt;&lt;font face=&quot;URWPalladioL&quot;&gt;variance = standard deviation ^2 &lt;/font&gt;&lt;/b&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            sd also called &amp;quot;mean square error&amp;quot;. it's a &lt;content ename=&quot;content&quot;&gt;&lt;font face=&quot;URWPalladioL&quot;&gt;&lt;b&gt;&amp;#24179;&amp;#22343;&amp;#20540;&lt;/b&gt;&lt;/font&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</richcontent>
 </node>
 <node CREATED="1425539771016" ID="ID_173410884" MODIFIED="1425539782484" TEXT="&#x5206;&#x5e03;">
 <node CREATED="1425539782878" ID="ID_226304513" MODIFIED="1425539857758" TEXT="&#x76f4;&#x65b9;&#x56fe; histogram"/>
@@ -238,7 +243,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1425525785874" ID="ID_1119578660" MODIFIED="1425525803446" TEXT="&#x7b2c;&#x56db;&#x7ae0; &#x8fde;&#x7eed;&#x5206;&#x5e03;">
+<node CREATED="1425525785874" ID="ID_1119578660" MODIFIED="1427946293852" TEXT="&#x7b2c;&#x56db;&#x7ae0; &#x8fde;&#x7eed;&#x5206;&#x5e03;">
 <node CREATED="1426158372528" ID="ID_1947243362" MODIFIED="1426765294544" TEXT="&#x6307;&#x6570;&#x5206;&#x5e03;">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -369,7 +374,7 @@
 </html></richcontent>
 <node CREATED="1427350717025" ID="ID_1208199209" MODIFIED="1427350800200" TEXT="CCDF &#x659c;&#x7387; shape. ln(ln(1/CCDF)) = shape*(ln(x)-ln(scale))"/>
 </node>
-<node CREATED="1427190923854" ID="ID_1131703138" MODIFIED="1427350947866" TEXT="Normal distribution">
+<node CREATED="1427190923854" ID="ID_1131703138" MODIFIED="1427946296717" TEXT="Normal distribution">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -388,6 +393,45 @@
 </html>
 </richcontent>
 </node>
+</node>
+<node CREATED="1425526929334" ID="ID_497895543" MODIFIED="1425526935617" TEXT="&#x7b2c;&#x4e94;&#x7ae0; &#x6982;&#x7387;">
+<node CREATED="1427936192777" ID="ID_1905798023" MODIFIED="1427936199730" TEXT="&#x8d1d;&#x53f6;&#x65af;&#x6982;&#x7387;"/>
+<node CREATED="1427945775737" ID="ID_1067214693" MODIFIED="1427945944830" TEXT="prior, posterior, likehood of evidence, normalization constant"/>
+<node CREATED="1427945953121" ID="ID_419156122" MODIFIED="1427946019465" TEXT="coefficient of variation &#x53d8;&#x5f02;&#x7cfb;&#x6570; "/>
+</node>
+<node CREATED="1427936167731" ID="ID_1059221387" MODIFIED="1427946251379" TEXT="&#x7b2c;&#x516d;&#x7ae0; Operations on distributions">
+<node CREATED="1427946045842" ID="ID_184421035" MODIFIED="1427946057923" TEXT="skewness, pearson skewness"/>
+<node CREATED="1427946058841" ID="ID_1253975621" MODIFIED="1427946078697" TEXT="convolution "/>
+<node CREATED="1427946079236" ID="ID_1557426829" MODIFIED="1427946136192" TEXT="central limit theorem"/>
+<node CREATED="1427936286816" ID="ID_1357606258" MODIFIED="1427939361582" TEXT="mean difference">
+<richcontent TYPE="NOTE">&lt;html&gt;
+  &lt;head&gt;
+    
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+      &amp;#24179;&amp;#22343;&amp;#24046; = 1/n&amp;#160;&amp;#8721;|xi - &amp;#181;| &lt;content ename=&quot;content&quot;&gt;&amp;#22312; 
+      SD&amp;#20013;&amp;#65292;&amp;#24322;&amp;#24120;&amp;#28857;&amp;#23545;SD&amp;#30340;&amp;#24433;&amp;#21709;&amp;#26159; x/sqrt(n), &amp;#23545;MD&amp;#30340;&amp;#24433;&amp;#21709;&amp;#26159; |x|/n. 
+      &amp;#25152;&amp;#20197;SD&amp;#23545;&amp;#22823;&amp;#24322;&amp;#24120;&amp;#20540;&amp;#24456;&amp;#25935;&amp;#24863;&amp;#65292;&amp;#23545;&amp;#23567;&amp;#24322;&amp;#24120;&amp;#20540;&amp;#19981;&amp;#25935;&amp;#24863;&amp;#12290;&amp;#32780;&amp;#19988;SD&amp;#21487;&amp;#20197;&amp;#27714;&amp;#23548;&amp;#25968;&amp;#65292; MD &amp;#27714;&amp;#23548;&amp;#65292;&amp;#31215;&amp;#20998;&amp;#21464;&amp;#21270;&amp;#24456;&amp;#22256;&amp;#38590;&amp;#12290;
+    &lt;/p&gt;
+    &lt;p&gt;
+      from: http://www.guokr.com/post/280402/
+    &lt;/p&gt;
+    &lt;p&gt;
+      &amp;#26631;&amp;#20934;&amp;#24046;&amp;#20013;&amp;#65292;&amp;#19982;&amp;#24179;&amp;#22343;&amp;#20540;&amp;#30340;&amp;#35823;&amp;#24046;&amp;#36234;&amp;#22823;&amp;#65292;&amp;#21152;&amp;#20837;&amp;#26631;&amp;#20934;&amp;#24046;&amp;#30340;&amp;#26435;&amp;#37325;&amp;#20063;&amp;#36234;&amp;#22823;&amp;#65292;&amp;#36825;&amp;#37324;&amp;#26159;&amp;#20108;&amp;#27425;&amp;#20851;&amp;#31995;&amp;#12290;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &amp;#32780;&amp;#24179;&amp;#22343;&amp;#24046;&amp;#19982;&amp;#24179;&amp;#22343;&amp;#20540;&amp;#21482;&amp;#26159;&amp;#32447;&amp;#24615;&amp;#20851;&amp;#31995;&amp;#12290;&amp;#27604;&amp;#26631;&amp;#20934;&amp;#24046;&amp;#23569;&amp;#20102;&amp;#19968;&amp;#20010;&amp;#31561;&amp;#32423;&amp;#12290;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &amp;#29992;&amp;#20110;&amp;#34920;&amp;#31034;&amp;#35823;&amp;#24046;&amp;#27700;&amp;#24179;&amp;#65288;&amp;#20063;&amp;#23601;&amp;#26159;&amp;#31283;&amp;#23450;&amp;#24615;&amp;#65289;&amp;#65292;&amp;#26631;&amp;#20934;&amp;#24046;&amp;#35201;&amp;#27604;&amp;#24179;&amp;#22343;&amp;#24046;&amp;#26126;&amp;#26174;&amp;#24471;&amp;#22810;&amp;#12290;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</richcontent>
+</node>
+</node>
+<node CREATED="1427936181823" ID="ID_680288409" MODIFIED="1427946334200" TEXT="&#x7b2c;&#x4e03;&#x7ae0; hypothesis testing">
 <node CREATED="1426572847897" ID="ID_1004941648" MODIFIED="1426572911681" TEXT="&#x5361;&#x65b9;&#x68c0;&#x9a8c;">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -401,7 +445,12 @@
 </html></richcontent>
 </node>
 </node>
-<node CREATED="1425526929334" ID="ID_497895543" MODIFIED="1425526935617" TEXT="&#x7b2c;&#x4e94;&#x7ae0; &#x6982;&#x7387;"/>
+<node CREATED="1427946175837" ID="ID_1193031689" MODIFIED="1427946187208" TEXT="&#x7b2c;&#x516b;&#x7ae0; estimation">
+<node CREATED="1427946385837" ID="ID_473149121" MODIFIED="1427946388378" TEXT="bias"/>
+<node CREATED="1427946388741" ID="ID_1632082771" MODIFIED="1427946406719" TEXT="confidence interval"/>
+<node CREATED="1427946762203" ID="ID_1752623507" MODIFIED="1427946800505" TEXT="credible interval"/>
+</node>
+<node CREATED="1427946187619" ID="ID_344502903" MODIFIED="1427946341302" TEXT="&#x7b2c;&#x4e5d;&#x7ae0; Correlation"/>
 </node>
 <node CREATED="1425525473288" ID="ID_234725828" MODIFIED="1425528573512" POSITION="right" TEXT="&#x673a;&#x5668;&#x5b66;&#x4e60; &#x4f7f;&#x7528;&#x6848;&#x4f8b;&#x89e3;&#x6790;">
 <node CREATED="1425528574690" ID="ID_630544786" MODIFIED="1425528595009" TEXT="&#x7b2c;&#x4e00;&#x7ae0; &#x4f7f;&#x7528;R&#x8bed;&#x8a00;"/>

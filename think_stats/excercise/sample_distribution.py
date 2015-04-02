@@ -13,6 +13,9 @@ def sample_weibull(scale, shape):
 def sample_normal(mu=0.0, sigma=1.0):
     return random.normalvariate(mu,sigma)
 
+def sample_log_normal(mu=0.0, sigma=1.0):
+    return random.lognormvariate(mu,sigma)
+
 def samples(function_name, n, lam=1.0, alpha=1.0, \
         xm=1.0, scale=1.0, shape=1.0, mu=0.0, sigma=1.0):
     
@@ -25,6 +28,8 @@ def samples(function_name, n, lam=1.0, alpha=1.0, \
             return sample_weibull(scale,shape)
         elif function_name == 'normal':
             return sample_normal(mu,sigma)
+        elif function_name == 'log_normal':
+            return sample_log_normal(mu,sigma)
         else: 
             raise Exception('no sample for ' + function_name) 
 

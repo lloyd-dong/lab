@@ -1,0 +1,34 @@
+import e_babies as eb
+import sys
+sys.path.append('..')
+import Cdf
+import myplot
+import Pmf
+
+def interquartile_mean(l, show_chart=False):
+    c_l = Cdf.MakeCdfFromList(l, 'whole')
+    v_25, v_mean, v_75 = c_l.Value(0.25),c_l.Value(0.50),c_l.Value(0.75)
+    print 'dbg: v_75:%d, v_25:%d, mean:%d' %(v_75, v_25,v_mean)
+
+    if show_chart:
+        myplot.Cdf(c_l)
+        myplot.Show()
+        pmf = Pmf.MakePmfFromList(l,'pmf')
+        print 'dgb: there are %d differnt wighth' % (len(pmf.Values()))
+        myplot.Pmf(pmf)
+        myplot.Show()
+    
+    return v_75 - v_25, v_mean
+
+def e3_11_interquartile():
+    baby_1st, baby_rest, babies = eb.partition_babies()
+    l_wt = eb.get_wight_list(babies)
+    print 'len of wt is ', len(l_wt)
+    interquartile, mean = interquartile_mean(l_wt)
+    print 'Interquartile is %d, mean is %4.2f' % (interquartile, mean)
+
+def main():
+    e3_11_interquartile()
+
+if __name__ == '__main__':
+    main()

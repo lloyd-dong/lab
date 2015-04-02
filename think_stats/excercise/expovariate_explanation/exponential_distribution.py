@@ -1,4 +1,6 @@
-import math, random,sys
+import math
+import random
+import sys
 
 """
 simple way
