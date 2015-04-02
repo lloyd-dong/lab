@@ -14,3 +14,5 @@ think_stats/output/
 *.gz
 
 *.out
+
+think_stats/book/thinkstats.pdf
