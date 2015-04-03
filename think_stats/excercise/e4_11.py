@@ -5,7 +5,6 @@ import math
 import sys
 sys.path.append('..')
 import brfss
-import e4_10
 import myplot
 import sample_distribution as sd
 
@@ -17,12 +16,9 @@ def get_sorted_weights():
     return l, len(l)
 
 def main():
-    weights, n = get_sorted_weights()    
-    xs = e4_10.sample_normal_xs(n)
+    weights, n = get_sorted_weights()
+    xs = sd.samples('normal', n) 
     myplot.scatter(xs, weights, label='normal')
-
-    xs_sd = sd.samples('normal', n)
-    myplot.scatter(xs_sd,weights, color='green', label='sampled')
 
     log_w = [math.log(w) for w in weights]
     myplot.scatter(xs, log_w, color='red', label='log normal')

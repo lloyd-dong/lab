@@ -59,8 +59,7 @@
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/body&gt;
-&lt;/html&gt;
-</richcontent>
+&lt;/html&gt;</richcontent>
 </node>
 <node CREATED="1425539771016" ID="ID_173410884" MODIFIED="1425539782484" TEXT="&#x5206;&#x5e03;">
 <node CREATED="1425539782878" ID="ID_226304513" MODIFIED="1425539857758" TEXT="&#x76f4;&#x65b9;&#x56fe; histogram"/>
@@ -243,7 +242,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1425525785874" ID="ID_1119578660" MODIFIED="1427946293852" TEXT="&#x7b2c;&#x56db;&#x7ae0; &#x8fde;&#x7eed;&#x5206;&#x5e03;">
+<node CREATED="1425525785874" ID="ID_1119578660" MODIFIED="1427956845004" TEXT="&#x7b2c;&#x56db;&#x7ae0; &#x8fde;&#x7eed;&#x5206;&#x5e03;">
 <node CREATED="1426158372528" ID="ID_1947243362" MODIFIED="1426765294544" TEXT="&#x6307;&#x6570;&#x5206;&#x5e03;">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -390,20 +389,46 @@
       CDF = 1/2[1+erf( (x-mu)/sigma*sqrt(2) )]
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
-<node CREATED="1425526929334" ID="ID_497895543" MODIFIED="1425526935617" TEXT="&#x7b2c;&#x4e94;&#x7ae0; &#x6982;&#x7387;">
+<node CREATED="1425526929334" FOLDED="true" ID="ID_497895543" MODIFIED="1427948258238" TEXT="&#x7b2c;&#x4e94;&#x7ae0; &#x6982;&#x7387;">
 <node CREATED="1427936192777" ID="ID_1905798023" MODIFIED="1427936199730" TEXT="&#x8d1d;&#x53f6;&#x65af;&#x6982;&#x7387;"/>
 <node CREATED="1427945775737" ID="ID_1067214693" MODIFIED="1427945944830" TEXT="prior, posterior, likehood of evidence, normalization constant"/>
 <node CREATED="1427945953121" ID="ID_419156122" MODIFIED="1427946019465" TEXT="coefficient of variation &#x53d8;&#x5f02;&#x7cfb;&#x6570; "/>
 </node>
 <node CREATED="1427936167731" ID="ID_1059221387" MODIFIED="1427946251379" TEXT="&#x7b2c;&#x516d;&#x7ae0; Operations on distributions">
 <node CREATED="1427946045842" ID="ID_184421035" MODIFIED="1427946057923" TEXT="skewness, pearson skewness"/>
-<node CREATED="1427946058841" ID="ID_1253975621" MODIFIED="1427946078697" TEXT="convolution "/>
-<node CREATED="1427946079236" ID="ID_1557426829" MODIFIED="1427946136192" TEXT="central limit theorem"/>
-<node CREATED="1427936286816" ID="ID_1357606258" MODIFIED="1427939361582" TEXT="mean difference">
+<node CREATED="1427948134117" ID="ID_195070051" MODIFIED="1427953826982" TEXT="gini coefficient">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      is 1/2 of relative mean difference.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1427953837998" ID="ID_1768546881" MODIFIED="1427953918988" TEXT="mean difference">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Mean difference&#65306;http://en.wikipedia.org/wiki/Mean_difference
+    </p>
+    <p>
+      = &quot;absolute mean difference&quot;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1427948146285" ID="ID_1429166490" MODIFIED="1427953870708" TEXT="mean deviation">
 <richcontent TYPE="NOTE">&lt;html&gt;
   &lt;head&gt;
     
@@ -411,9 +436,8 @@
   &lt;/head&gt;
   &lt;body&gt;
     &lt;p&gt;
-      &amp;#24179;&amp;#22343;&amp;#24046; = 1/n&amp;#160;&amp;#8721;|xi - &amp;#181;| &lt;content ename=&quot;content&quot;&gt;&amp;#22312; 
-      SD&amp;#20013;&amp;#65292;&amp;#24322;&amp;#24120;&amp;#28857;&amp;#23545;SD&amp;#30340;&amp;#24433;&amp;#21709;&amp;#26159; x/sqrt(n), &amp;#23545;MD&amp;#30340;&amp;#24433;&amp;#21709;&amp;#26159; |x|/n. 
-      &amp;#25152;&amp;#20197;SD&amp;#23545;&amp;#22823;&amp;#24322;&amp;#24120;&amp;#20540;&amp;#24456;&amp;#25935;&amp;#24863;&amp;#65292;&amp;#23545;&amp;#23567;&amp;#24322;&amp;#24120;&amp;#20540;&amp;#19981;&amp;#25935;&amp;#24863;&amp;#12290;&amp;#32780;&amp;#19988;SD&amp;#21487;&amp;#20197;&amp;#27714;&amp;#23548;&amp;#25968;&amp;#65292; MD &amp;#27714;&amp;#23548;&amp;#65292;&amp;#31215;&amp;#20998;&amp;#21464;&amp;#21270;&amp;#24456;&amp;#22256;&amp;#38590;&amp;#12290;
+      mean deviation = 1/n&amp;#160;&amp;#8721;|xi - &amp;#181;| &lt;content ename=&quot;content&quot;&gt;&amp;#22312; SD&amp;#20013;&amp;#65292;&amp;#24322;&amp;#24120;&amp;#28857;&amp;#23545;SD&amp;#30340;&amp;#24433;&amp;#21709;&amp;#26159; 
+      x/sqrt(n), &amp;#23545;MD&amp;#30340;&amp;#24433;&amp;#21709;&amp;#26159; |x|/n. &amp;#25152;&amp;#20197;SD&amp;#23545;&amp;#22823;&amp;#24322;&amp;#24120;&amp;#20540;&amp;#24456;&amp;#25935;&amp;#24863;&amp;#65292;&amp;#23545;&amp;#23567;&amp;#24322;&amp;#24120;&amp;#20540;&amp;#19981;&amp;#25935;&amp;#24863;&amp;#12290;&amp;#32780;&amp;#19988;SD&amp;#21487;&amp;#20197;&amp;#27714;&amp;#23548;&amp;#25968;&amp;#65292; MD &amp;#27714;&amp;#23548;&amp;#65292;&amp;#31215;&amp;#20998;&amp;#21464;&amp;#21270;&amp;#24456;&amp;#22256;&amp;#38590;&amp;#12290;
     &lt;/p&gt;
     &lt;p&gt;
       from: http://www.guokr.com/post/280402/
@@ -427,8 +451,28 @@
     &lt;p&gt;
       &amp;#29992;&amp;#20110;&amp;#34920;&amp;#31034;&amp;#35823;&amp;#24046;&amp;#27700;&amp;#24179;&amp;#65288;&amp;#20063;&amp;#23601;&amp;#26159;&amp;#31283;&amp;#23450;&amp;#24615;&amp;#65289;&amp;#65292;&amp;#26631;&amp;#20934;&amp;#24046;&amp;#35201;&amp;#27604;&amp;#24179;&amp;#22343;&amp;#24046;&amp;#26126;&amp;#26174;&amp;#24471;&amp;#22810;&amp;#12290;
     &lt;/p&gt;
+    &lt;p&gt;
+      
+    &lt;/p&gt;
   &lt;/body&gt;
-&lt;/html&gt;</richcontent>
+&lt;/html&gt;
+</richcontent>
+</node>
+<node CREATED="1427946058841" ID="ID_1253975621" MODIFIED="1427946078697" TEXT="convolution "/>
+<node CREATED="1427946079236" ID="ID_1557426829" MODIFIED="1427946136192" TEXT="central limit theorem"/>
+<node CREATED="1427952622176" ID="ID_1163414860" MODIFIED="1427952629575" TEXT="moment &#x77e9;"/>
+<node CREATED="1427956492422" ID="ID_208725127" MODIFIED="1427956570592" TEXT="Gumbel distribution">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#25551;&#36848;&#26576;&#20010;&#20998;&#24067;&#26497;&#20540;&#21457;&#29983;&#30340;&#21487;&#33021;&#24615;&#65292;&#22914;&#24050;&#30693;&#36807;&#21435;&#19968;&#31995;&#21015;&#21382;&#21490;&#25968;&#25454;&#65292;&#39044;&#27979;&#20170;&#22825;&#22823;&#22320;&#38663;&#65292;&#26368;&#39640;&#27700;&#20301;&#30340;&#21487;&#33021;&#24615;&#31561;&#31561;&#12290;
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 <node CREATED="1427936181823" ID="ID_680288409" MODIFIED="1427946334200" TEXT="&#x7b2c;&#x4e03;&#x7ae0; hypothesis testing">
