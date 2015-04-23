@@ -6,33 +6,63 @@ sys.path.append('..')
 import thinkstats
 import Cdf
 
-def mean_diff_and_whole_samples():
-	''' wl[0] is weight list of 1st, wl[1] is rest, wl[2] is all
-	'''
-	wl = [eb.get_wight_list(baby) for baby in eb.partition_babies()]	
-	means = [thinkstats.Mean(li) for li in wl] 	
-	return means, wl[2]
 
-def means_by_resampling(wl, sample_times=100, point_n=1000):	
-	means = []
-	for i in xrange(sample_times):
-		l = []
-		for j in xrange(point_n):
-			l.append(random.choice(wl))
-		means.append(thinkstats.Mean(l))
-	return means
+def resample(pool, n):
+    return [random.choice(pool) for i in xrange(n)]
 
-def main():	
-	means, wl = mean_diff_and_whole_samples()	
-	mean_diff = abs(means[0]-means[1])
-	print 'mean diff: %4.2f oz' % (mean_diff)
+def mean_diff(l1, l2):
+    return thinkstats.Mean(l1) - thinkstats.Mean(l2)
 
-	sample_times = 1000
-	mean_sample = means_by_resampling(wl, sample_times)
-	mean_sample = [abs(m-means[1]) for m in mean_sample]
-	cdf_means = Cdf.MakeCdfFromList(mean_sample, 'sample means')
-	p_value = cdf_means.Prob(mean_diff)
-	print 'p value: %4.2f%%' % (p_value*100) 
+def generate_diff_list(pool, len1,len2, iter_times=1000):
+    md_l = []
+    for i in xrange(iter_times):
+        sample_1 = resample(pool, len1)
+        sample_2 =resample(pool,len2)
+        md = mean_diff(sample_1, sample_2)
+        md_l.append(md)
+    return md_l
 
+def p_value(first, others, pool):
+    md_1_others = abs(mean_diff(first, others))
+    print 'mean diff 1st and others: %4.2f' % (md_1_others)
+    
+    md_l = generate_diff_list(pool,len(first), len(others))     
+    cdf_md = Cdf.MakeCdfFromList(md_l, 'sample mean diff')    
+    p_value = cdf_md.Prob(-md_1_others) + (1 - cdf_md.Prob(md_1_others))
+    return p_value
+
+def p_value_weigtht(babies):
+    w_l = [eb.get_wight_list(baby) for baby in babies]
+    p = p_value(w_l[0],w_l[1],w_l[2])
+    print 'wight p value: %4.2f%%' % (p*100)
+
+def length_p_value(babies):
+    length_l = [eb.get_pregnacy_list(baby) for baby in babies] 
+    p = p_value(length_l[0],length_l[1],length_l[2])
+    print 'length p value: %4.2f%%' % (p*100)
+
+def reduced_sample(babies):
+    print '7 - 2'
+    reduce_rates = [2,4]
+    for r in reduce_rates:
+        reduced = [random.sample(babies[0], len(babies[0])/r), \
+                   random.sample(babies[1], len(babies[1])/r)]
+        reduced.append(reduced[0]+reduced[1])
+        print r,': ', 
+        p_value_weigtht(reduced)    
+def bayes(s1, s2, pool, cross_validation=False):
+    if cross_validation:
+        p1_1, p1_2 = partition(s1)
+        p2_1, p2_2 = partition(s2)
+        pool = p1_2 + p2_2
+    
+
+def main(): 
+    ''' [0]list of 1st, [1] is others, [2] is all'''
+    babies = eb.partition_babies()
+    p_value_weigtht(babies)
+    #length_p_value(babies)
+    #reduced_sample(babies)
+       
 if __name__ == '__main__':
-	main()
+    main()

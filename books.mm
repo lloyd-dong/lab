@@ -242,7 +242,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1425525785874" ID="ID_1119578660" MODIFIED="1427956845004" TEXT="&#x7b2c;&#x56db;&#x7ae0; &#x8fde;&#x7eed;&#x5206;&#x5e03;">
+<node CREATED="1425525785874" FOLDED="true" ID="ID_1119578660" MODIFIED="1428888403928" TEXT="&#x7b2c;&#x56db;&#x7ae0; &#x8fde;&#x7eed;&#x5206;&#x5e03;">
 <node CREATED="1426158372528" ID="ID_1947243362" MODIFIED="1426765294544" TEXT="&#x6307;&#x6570;&#x5206;&#x5e03;">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -397,7 +397,7 @@
 <node CREATED="1427945775737" ID="ID_1067214693" MODIFIED="1427945944830" TEXT="prior, posterior, likehood of evidence, normalization constant"/>
 <node CREATED="1427945953121" ID="ID_419156122" MODIFIED="1427946019465" TEXT="coefficient of variation &#x53d8;&#x5f02;&#x7cfb;&#x6570; "/>
 </node>
-<node CREATED="1427936167731" ID="ID_1059221387" MODIFIED="1427946251379" TEXT="&#x7b2c;&#x516d;&#x7ae0; Operations on distributions">
+<node CREATED="1427936167731" FOLDED="true" ID="ID_1059221387" MODIFIED="1428888407260" TEXT="&#x7b2c;&#x516d;&#x7ae0; Operations on distributions">
 <node CREATED="1427946045842" ID="ID_184421035" MODIFIED="1427946057923" TEXT="skewness, pearson skewness"/>
 <node CREATED="1427948134117" ID="ID_195070051" MODIFIED="1427953826982" TEXT="gini coefficient">
 <richcontent TYPE="NOTE"><html>
@@ -409,8 +409,7 @@
       is 1/2 of relative mean difference.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1427953837998" ID="ID_1768546881" MODIFIED="1427953918988" TEXT="mean difference">
 <richcontent TYPE="NOTE"><html>
@@ -425,8 +424,7 @@
       = &quot;absolute mean difference&quot;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1427948146285" ID="ID_1429166490" MODIFIED="1427953870708" TEXT="mean deviation">
 <richcontent TYPE="NOTE">&lt;html&gt;
@@ -455,13 +453,12 @@
       
     &lt;/p&gt;
   &lt;/body&gt;
-&lt;/html&gt;
-</richcontent>
+&lt;/html&gt;</richcontent>
 </node>
 <node CREATED="1427946058841" ID="ID_1253975621" MODIFIED="1427946078697" TEXT="convolution "/>
 <node CREATED="1427946079236" ID="ID_1557426829" MODIFIED="1427946136192" TEXT="central limit theorem"/>
 <node CREATED="1427952622176" ID="ID_1163414860" MODIFIED="1427952629575" TEXT="moment &#x77e9;"/>
-<node CREATED="1427956492422" ID="ID_208725127" MODIFIED="1427956570592" TEXT="Gumbel distribution">
+<node CREATED="1427956492422" ID="ID_208725127" MODIFIED="1428887546051" TEXT="Gumbel distribution">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -476,7 +473,7 @@
 </node>
 </node>
 <node CREATED="1427936181823" ID="ID_680288409" MODIFIED="1427946334200" TEXT="&#x7b2c;&#x4e03;&#x7ae0; hypothesis testing">
-<node CREATED="1426572847897" ID="ID_1004941648" MODIFIED="1426572911681" TEXT="&#x5361;&#x65b9;&#x68c0;&#x9a8c;">
+<node CREATED="1426572847897" ID="ID_1004941648" MODIFIED="1428888851164" TEXT="&#x5361;&#x65b9;&#x68c0;&#x9a8c; &#xa;&#x5224;&#x65ad;&#x4e24;&#x7ec4;&#x6570;&#x636e;&#x7684;&#x5206;&#x5e03;&#x5dee;&#x5f02;&#x662f;&#x5426;&#x663e;&#x8457;">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -485,16 +482,154 @@
     <p>
       &#27604;&#36739;&#32479;&#35745;&#20540;&#21644;&#20020;&#30028;&#20540;&#65292;&#23567;&#20110;&#26159;&#25509;&#21463;&#20551;&#35774; http://wiki.mbalib.com/zh-tw/&#21345;&#26041;&#26816;&#39564;
     </p>
+    <p>
+      &#29992;&#27599;&#32452;&#20998;&#24067;&#30340;&#31163;&#24046;&#35745;&#31639;&#21345;&#26041;&#20540;-1&#65292;&#33945;&#29305;&#21345;&#32599;&#21345;&#26041;&#20540;&#24207;&#21015;, &#24471;&#21040;&#21345;&#26041;&#20540;-1&#30340;p-value&#65292;&#21028;&#26029;&#20854;&#21487;&#33021;&#24615;&#12290;&#20889;&#19968;&#20010;blog.
+    </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428888441295" ID="ID_1219466777" MODIFIED="1428888602046" TEXT="&#x5224;&#x65ad;&#x4e24;&#x7ec4;&#x6570;&#x636e;&#x5dee;&#x5f02;&#x662f;&#x5426;&#x663e;&#x8457;, &#xa;P value, &#x8d1d;&#x53f6;&#x65af;&#x56e0;&#x5b50;"/>
+</node>
+<node CREATED="1427946175837" ID="ID_1193031689" MODIFIED="1428903444272" TEXT="&#x7b2c;&#x516b;&#x7ae0; estimation">
+<node CREATED="1428890608567" ID="ID_197464193" MODIFIED="1428890628441" TEXT="&#x731c;&#x6d4b;&#x5206;&#x5e03;&#xff0c;&#x53c2;&#x6570;">
+<node CREATED="1428890714191" ID="ID_327763618" MODIFIED="1428891029724" TEXT="&#x65e0;&#x5f02;&#x5e38;&#x503c; &#x6700;&#x5c0f;&#x5316;MSE">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Mean Squared Error MSE= 1/m * &#8721;(&#26679;&#26412;&#24179;&#22343;&#20540; - &#181;)**2.&#160;&#160;&#20272;&#31639;&#181;. m &#26159;&#36827;&#34892;&#37319;&#26679;&#30340;&#27425;&#25968;&#65292; n &#26159;&#27599;&#27425;&#37319;&#26679;&#30340;&#26679;&#26412;&#25968;
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
-<node CREATED="1427946175837" ID="ID_1193031689" MODIFIED="1427946187208" TEXT="&#x7b2c;&#x516b;&#x7ae0; estimation">
+<node CREATED="1428891452303" ID="ID_1657053092" MODIFIED="1428891473918" TEXT="&#x5bf9;&#x4e8e;&#x4e00;&#x6b21;&#x91c7;&#x6837;&#x4f30;&#x7b97;&#x53c2;&#x6570;&#xff0c;&#x4e0d;&#x77e5;&#x9053;&#x8bef;&#x5dee;"/>
+<node CREATED="1428891326475" ID="ID_1666181273" MODIFIED="1428891600382" TEXT="&#x65b9;&#x5dee;&#x4f30;&#x8ba1;  n-1"/>
+<node CREATED="1428891601250" ID="ID_1899269839" MODIFIED="1428891627653" TEXT="&#x5e73;&#x5747;&#x6570;&#x5728;&#x5f02;&#x5e38;&#x503c;&#x4e0b;&#x4e0d;&#x7a33;&#x5b9a;&#xff0c;&#x7528;&#x4e2d;&#x4f4d;&#x6570;&#x4f30;&#x7b97;"/>
 <node CREATED="1427946385837" ID="ID_473149121" MODIFIED="1427946388378" TEXT="bias"/>
-<node CREATED="1427946388741" ID="ID_1632082771" MODIFIED="1427946406719" TEXT="confidence interval"/>
-<node CREATED="1427946762203" ID="ID_1752623507" MODIFIED="1427946800505" TEXT="credible interval"/>
+<node CREATED="1427946388741" ID="ID_1632082771" MODIFIED="1428891759026" TEXT="confidence interval">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#36825;&#20010;&#21306;&#38388;&#35206;&#30422;&#20102;&#20998;&#24067;&#21442;&#25968;&#30340;&#21462;&#20540;&#33539;&#22260; &#20197;&#21450;&#27599;&#31181;&#20540;&#24471;&#21487;&#33021;&#24615;
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
-<node CREATED="1427946187619" ID="ID_344502903" MODIFIED="1427946341302" TEXT="&#x7b2c;&#x4e5d;&#x7ae0; Correlation"/>
+<node CREATED="1427946762203" ID="ID_1752623507" MODIFIED="1428893402493" TEXT="credible interval">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#21033;&#29992;bayes &#26041;&#27861;&#65292;&#35745;&#31639;&#21442;&#25968;&#20998;&#24067;&#22312;&#24403;&#21069;&#26679;&#26412;&#19979;&#30340;&#21487;&#33021;&#24615;&#25968;&#21015;&#65292;&#28982;&#21518;&#35745;&#31639;95%&#65292;5%&#30340;&#20998;&#20301;&#25968;&#23601;&#21487;&#20197;&#24471;&#21040;90%&#30340;&#32622;&#20449;&#21306;&#38388;&#65292;&#31216;&#20043;&#20026;&#8220;&#21487;&#20449;&#21306;&#38388;&#8221;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428899147086" ID="ID_1413948965" MODIFIED="1428903500644" TEXT="German tank problem">
+<icon BUILTIN="button_cancel"/>
+</node>
+</node>
+<node CREATED="1427946187619" ID="ID_344502903" MODIFIED="1427946341302" TEXT="&#x7b2c;&#x4e5d;&#x7ae0; Correlation">
+<node CREATED="1428889181934" ID="ID_1472302398" MODIFIED="1428899443234" TEXT="&#x534f;&#x65b9;&#x5dee; covariance">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Cov(X,Y)=1/n * &#8721; dxi * dyi&#160;
+    </p>
+    <p>
+      dxi=xi - &#181;(X)
+    </p>
+    <p>
+      dyi=yi - &#181;(Y)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428889224932" ID="ID_1026685013" MODIFIED="1428901302359" TEXT="pearson correlation ">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#20351;&#29992;&#26631;&#20934;&#20998;&#23376;&#65292;&#24402;&#19968;&#20102;&#12290;&#23545;&#20110;&#24322;&#24120;&#20540;&#24456;&#25935;&#24863;&#12290;
+    </p>
+    <p>
+      pi = (xi-&#181;X)/sigma_X * (yi-&#181;Y)/sigma_Y
+    </p>
+    <p>
+      p = 1/n * &#8721;pi = Cov(X,Y)/(sigma_X*sigma_Y)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428889254144" ID="ID_855212746" MODIFIED="1428901271862" TEXT="spearman rank correlation">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#25226;&#20540;&#26367;&#25442;&#25104; &#31209; rank, &#35745;&#31639;pearson&#12290;&#20248;&#28857;&#65292;&#23545;&#20110;&#24322;&#24120;&#20540;&#19981;&#25935;&#24863;&#12290;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428889277070" ID="ID_1860559345" MODIFIED="1428902718464" TEXT="&#x7ebf;&#x6027;&#x6700;&#x5c0f;&#x4e8c;&#x4e58;&#x62df;&#x5408; linear least square fit">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#26368;&#23567;&#20108;&#20056;&#27861; linear square, &#20351;&#25311;&#21512;&#20989;&#25968;&#19982;&#25968;&#25454;&#22343;&#26041;&#24046;&#26368;&#23567;&#30340;&#25311;&#21512;&#26041;&#27861;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      beta = Cov(X,Y)/Var(X),&#160;&#160;alpha =Y(&#26679;&#26412;&#24179;&#22343;&#20540;) - beta*X(&#26679;&#26412;&#24179;&#22343;&#20540;)
+    </p>
+    <p>
+      y=alpha + beta*x
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428902951389" ID="ID_1541180735" MODIFIED="1428903395019" TEXT="&#x786e;&#x5b9a;&#x7cfb;&#x6570; coefficient of determination ">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      in &#32447;&#24615;&#26368;&#23567;&#20108;&#20056;&#65292;R**2 = p **2&#12290; &#24847;&#20041;&#65306;&#35299;&#37322;&#20102;&#22810;&#23569;&#30340;&#21464;&#24322;&#24615;&#160;&#160;1 - Var(residual)/Var(Y)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1428903397623" ID="ID_1687733868" MODIFIED="1428903422212" TEXT="&#x968f;&#x673a;&#x5bf9;&#x7167;&#x8bd5;&#x9a8c; randomized controlled trial"/>
+</node>
 </node>
 <node CREATED="1425525473288" ID="ID_234725828" MODIFIED="1425528573512" POSITION="right" TEXT="&#x673a;&#x5668;&#x5b66;&#x4e60; &#x4f7f;&#x7528;&#x6848;&#x4f8b;&#x89e3;&#x6790;">
 <node CREATED="1425528574690" ID="ID_630544786" MODIFIED="1425528595009" TEXT="&#x7b2c;&#x4e00;&#x7ae0; &#x4f7f;&#x7528;R&#x8bed;&#x8a00;"/>

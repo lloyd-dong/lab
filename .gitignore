@@ -11,8 +11,8 @@ think_stats/data/
 think_stats/*.pdf
 think_stats/output/
 
+ML_for_Hackers/
 *.gz
-
 *.out
 
 think_stats/book/thinkstats.pdf
