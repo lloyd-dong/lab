@@ -1,0 +1,17 @@
+version: '2'
+services:
+    rabbit:
+        image: rabbitmq:3-management        
+        restart: always
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        #environment:
+            #- RABBITMQ_DEFAULT_USER=airflow
+            #- RABBITMQ_DEFAULT_PASS=airflow
+            #- RABBITMQ_DEFAULT_VHOST=airflow
+    celery:
+        image: celery
+        restart: always
+        depends_on:
+            - rabbit
