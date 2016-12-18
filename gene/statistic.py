@@ -15,14 +15,14 @@ cl_10=client.gene.seq_gt_10
 
 with open(fileName) as f:
 	i,j=0,0
-	n_1,n_2=4e+4,2e+7
+	n_1,n_2=4e+4,50 #every n_1 print a ., print n_2 times, then print next line
 	for line in f:
 		i +=1
 		if i%4==0:
 			if i%n_1==0: print '.',
-			if i%n_2==0: 
+			if i==n_1*n_2: 
 				j +=1
-				print ' %d m' % n_2/4e+6*j
+				print ' %d m' % (i/(4e+6)*j)
 				i=0
 			continue
 		if i%2!=0:
@@ -34,7 +34,7 @@ with open(fileName) as f:
 			projection={'cnt': True, '_id': False},
 			upsert=True,
 			return_document=ReturnDocument.AFTER)['cnt']
-		if  cnt>30: #put most  frequent records in a separate collection
+		if  cnt>20: #put most  frequent records in a separate collection
 			cl_10.update_one({'_id':line},{'$set':{'cnt': cnt }}, True)
 
 for item in cl_10.find().sort([('cnt',-1)]).limit(20):
