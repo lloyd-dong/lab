@@ -1,7 +1,6 @@
-
 import sys
 import hashlib
- 
+
 for line in sys.stdin:
     line = line.strip()
     print(line)
