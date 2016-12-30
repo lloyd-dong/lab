@@ -22,7 +22,7 @@ with open(fileName) as f:
 			if i%n_1==0: print '.',
 			if i==n_1*n_2: 
 				j +=1
-				print ' %d m' % (i/(4e+6)*j)
+				print ' %0.1f m' % (i/(4e+6)*j)
 				i=0
 			continue
 		if i%2!=0:
