@@ -27,20 +27,17 @@ ossfs bob-backup /mnt/gene -ourl=http://vpc100-oss-cn-beijing.aliyuncs.com
 cd /mnt/gene/bwa
 pwd
 
-export INPUT=a
+export INPUT=b
 export OUTPUT=../output
 mkdir -p $OUTPUT
 
 echo "...................................................................."
-echo "processing 2016006L-1-2$INPUT_R1.fq  =>  $OUTPUT/$INPUT_out.aln.bam "
+echo "processing 2016006L-1-2 $INPUT _R1.fq  =>  $OUTPUT / $INPUT _out.aln.bam "
 echo "...................................................................."
-#./seqtk mergepe ../rawData/2016006L-1-2$INPUT_R1.fq ../rawData/2016006L-1-2$INPUT_R2.fq \
-#   | ./bwa mem -p ../ref/GRCh38_full_analysis_set_plus_decoy_hla.fa - 2> $OUTPUT/$INPUT_out.log.bwamem \
-#   | ./samtools view -1 - > $OUTPUT/$INPUT_out.aln.bam;
 
-export INPUT=r
-./seqtk mergepe ../rawData/$INPUT1.fq ../rawData/$INPUT2.fq \
-   | ./bwa mem -p ../ref/GRCh38_full_analysis_set_plus_decoy_hla.fa - 2> $OUTPUT/$INPUT_out.log.bwamem \
-   | ./samtools view -1 - > $OUTPUT/$INPUT_out.aln.bam;
+./seqtk mergepe ../rawData/2016006L-1-2"$INPUT"_R1.fq.gz ../rawData/2016006L-1-2"$INPUT"_R2.fq.gz \
+   | ./bwa mem -t 6 -p ../ref/GRCh38_full_analysis_set_plus_decoy_hla.fa - 2> "$OUTPUT"/"$INPUT"_out.log.bwamem \
+   | ./samtools view -1 - > "$OUTPUT"/"$INPUT"_out.aln.bam;
 
-./htsbox samview $OUTPUT/$INPUT_out.aln.bam >$OUTPUT
+
+#./htsbox samview "$OUTPUT"/"$INPUT"_out.aln.bam >"$OUTPUT"/"$INPUT"_out.aln.sam
