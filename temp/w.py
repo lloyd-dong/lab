@@ -27,3 +27,8 @@ if __name__ == "__main__":
 # 	f.write("{} : ".format(datetime.now()))
 # 	f.write( '; '.join(sys.argv[1:]))
 # 	f.write("\n")
+
+from subprocess import Popen, PIPE
+process = Popen('hdfs getconf -namenodes',shell=True,stdout=PIPE, stderr=PIPE)
+std_out, std_err = process.communicate()
+process.returncode
