@@ -26,3 +26,5 @@ gene/data/*
 *.fq
 
 temp/*
+
+*.ipynb
