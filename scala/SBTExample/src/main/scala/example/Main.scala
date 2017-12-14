@@ -7,5 +7,8 @@ object Main extends App{
   val ages = Seq(12,34,58,89)
 
   println(s"the oldest age is ${ages.max}")
+  for (x <- ages){
+    println("age is %d".format(x))
+  }
 
 }

@@ -1778,9 +1778,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.16!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
-[debug] :: resolution report :: resolve 593ms :: artifacts dl 19ms
+[debug] :: resolution report :: resolve 332ms :: artifacts dl 14ms
 [debug] 	report for default#sbtexample$sbt_2.10;1.0 default produced in /Users/bodong/github/lab/scala/SBTExample/target/scala-2.12/resolution-cache/reports/default-sbtexample$sbt_2.10-default.xml
-[debug] 	resolve done (593ms resolve - 19ms download)
+[debug] 	resolve done (332ms resolve - 14ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#sbtexample$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -2458,6 +2458,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#tracking;0.13.16!tracking.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.16!test-agent.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#command;0.13.16!command.jar(src)
-[debug] :: resolution report :: resolve 248ms :: artifacts dl 39ms
+[debug] :: resolution report :: resolve 129ms :: artifacts dl 22ms
 [debug] 	report for default#sbtexample$sources_2.10;1.0 default produced in /Users/bodong/github/lab/scala/SBTExample/target/scala-2.12/resolution-cache/reports/default-sbtexample$sources_2.10-default.xml
-[debug] 	resolve done (248ms resolve - 39ms download)
+[debug] 	resolve done (129ms resolve - 22ms download)

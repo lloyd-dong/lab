@@ -4,7 +4,7 @@
 		module="sbtexample$sources_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170809163610"
+		publication="20170831174521"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

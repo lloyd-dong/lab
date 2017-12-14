@@ -4,7 +4,7 @@
 		module="sbtexample-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170809163603"
+		publication="20170831174515"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

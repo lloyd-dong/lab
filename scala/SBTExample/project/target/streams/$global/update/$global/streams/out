@@ -6009,7 +6009,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 1434ms :: artifacts dl 42ms
+[debug] :: resolution report :: resolve 1372ms :: artifacts dl 20ms
 [debug] 	report for default#sbtexample-build;0.1-SNAPSHOT compile produced in /Users/bodong/github/lab/scala/SBTExample/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-sbtexample-build-compile.xml
 [debug] 	report for default#sbtexample-build;0.1-SNAPSHOT runtime produced in /Users/bodong/github/lab/scala/SBTExample/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-sbtexample-build-runtime.xml
 [debug] 	report for default#sbtexample-build;0.1-SNAPSHOT test produced in /Users/bodong/github/lab/scala/SBTExample/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-sbtexample-build-test.xml
@@ -6023,5 +6023,5 @@
 [debug] 	report for default#sbtexample-build;0.1-SNAPSHOT docs produced in /Users/bodong/github/lab/scala/SBTExample/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-sbtexample-build-docs.xml
 [debug] 	report for default#sbtexample-build;0.1-SNAPSHOT pom produced in /Users/bodong/github/lab/scala/SBTExample/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-sbtexample-build-pom.xml
 [debug] 	report for default#sbtexample-build;0.1-SNAPSHOT scala-tool produced in /Users/bodong/github/lab/scala/SBTExample/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-sbtexample-build-scala-tool.xml
-[debug] 	resolve done (1434ms resolve - 42ms download)
+[debug] 	resolve done (1372ms resolve - 20ms download)
 [info] Done updating.
