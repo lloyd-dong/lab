@@ -15,7 +15,8 @@ think_stats/.ipynb_checkpoints/
 ML_for_Hackers/
 *.gz
 *.out
-
+*.class
+*.jar
 
 think_stats/book/thinkstats.pdf
 think_stats/book/thinkstats2.pdf
