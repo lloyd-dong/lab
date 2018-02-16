@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FD5601B327057E93F0495A578512F3868F695947",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FD5601B327057E93F0495A578512F3868F695947" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F020AB4F-049C-4EFF-8195-9483F189C965",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FD5601B327057E93F0495A578512F3868F695947" : "lab\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "bitmode",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "c++\/bitmode\/bitmode.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lloyd-dong\/lab.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FD5601B327057E93F0495A578512F3868F695947"
+    }
+  ]
+}
