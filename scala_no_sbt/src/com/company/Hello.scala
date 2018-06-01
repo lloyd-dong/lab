@@ -9,7 +9,7 @@ object Hello {
     val a= Array(1,2,3)
     val b=Array(4,5,6)
 
-    a.zip(b).map( (x:Int,y:Int) => print(x,y))
+    //a.zip(b).map( (x:Int,y:Int) => {x+y})
 
     println("\n------")
     for (x <- a zip b){

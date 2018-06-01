@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBAction func showPopup(_ sender: Any) {
         
         let alert = UIAlertController(title: "Hello World Message", message: myMessage, preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = ULAlertAction
+        //let cancelAction = ULAlertAction
     }
 
     @IBAction func sayHello(_ sender: Any) {
