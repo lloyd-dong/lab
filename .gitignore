@@ -3,6 +3,7 @@
 *.log
 *~
 build/
+out/
 MANIFEST
 .DS_Store
 .coverage
