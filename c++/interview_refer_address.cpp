@@ -6,6 +6,11 @@ void swap(int&   x, int  &   y, int   &z){
 	x=y;
 	y=z;
 }
+void swap2(int* x, int * y, int   *z){
+	*z=*x;
+	*x=*y;
+	*y=*z;
+}
 
 void print_array(int* a){
 	int len = sizeof(a)/sizeof(*a);
@@ -19,7 +24,10 @@ void print_array(int* a){
 int main(){
 	int x=10, y=0, z;
 	swap(x,y,z);
-	cout << "x: " <<x <<" y: " <<y <<endl;
+	cout << "x: " <<x <<" y: " <<y << " z: " << z <<endl;
+
+        swap2(&x, &y, &z);
+	cout << "x: " <<x <<" y: " <<y << " z: " << z <<endl;
 
 	int a[]={1,2,3,4,5,6};
 	cout<<"size of array:" <<sizeof(a) <<endl;
