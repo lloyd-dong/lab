@@ -31,3 +31,4 @@ gene/data/*
 temp/*
 
 .ipynb_checkpoints/
+c++/DerivedData/
