@@ -32,3 +32,4 @@ temp/*
 
 .ipynb_checkpoints/
 c++/DerivedData/
+*.xcodeproj/*
