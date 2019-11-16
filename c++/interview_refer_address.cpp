@@ -31,6 +31,7 @@ int main(){
 
 	int a[]={1,2,3,4,5,6};
 	cout<<"size of array:" <<sizeof(a) <<endl;
+	cout<<" size array element :" <<sizeof(a[0]) <<endl;
 	print_array(a);
 	return 0;
 } 
