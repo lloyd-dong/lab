@@ -1,0 +1,15 @@
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [hello-world / Compile / run] Found inputs: /Users/bodong/github/lab/scala/hello-world/*.{java,scala},/Users/bodong/github/lab/scala/hello-world/src/main/java/**/*.{java,scala},/Users/bodong/github/lab/scala/hello-world/src/main/resources/**/*,/Users/bodong/github/lab/scala/hello-world/src/main/scala/**/*.{java,scala},/Users/bodong/github/lab/scala/hello-world/src/main/scala-2.13/**/*.{java,scala}[0m
+[0m[[0m[0minfo[0m] [0m[0m1. Monitoring source files for hello-world/run...[0m
+[0m[[0m[0minfo[0m] [0m[0m   Press <enter> to interrupt or '?' for more options.[0m
+[0m[[0m[0mdebug[0m] [0m[0mhello-world / Compile / run - Accepted event for /Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mReceived Update(/Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))[0m
+[0m[[0m[0mdebug[0m] [0m[0mReceived event for path /Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mReceived event for path /Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreating update event for modified /Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala (previous stamp: Hash(f00a7a3d0a9a04504f22f412dc24bb22b70e9027), current stamp: Hash(f6a0c77d71f2c732b0b2329ce51852c9e9f96879))[0m
+[0m[[0m[0mdebug[0m] [0m[0mReceived file event actions: /Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala -> Trigger. Returning: (Update(/Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala, 2020-Feb-19 21:39:53.270 CT),Trigger)[0m
+[0m[[0m[0minfo[0m] [0m[0mBuild triggered by /Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala. Running 'run'.[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received file event Trigger for Update(/Users/bodong/github/lab/scala/hello-world/src/main/scala/Main.scala, 2020-Feb-19 21:39:53.270 CT).[0m
+[0m[[0m[0minfo[0m] [0m[0m2. Monitoring source files for hello-world/run...[0m
+[0m[[0m[0minfo[0m] [0m[0m   Press <enter> to interrupt or '?' for more options.[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received input event: Run().[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received input event: Run().[0m

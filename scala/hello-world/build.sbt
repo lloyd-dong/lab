@@ -1,14 +1,14 @@
 // The simplest possible sbt build file is just one line:
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.13.1"
 // That is, to create a valid sbt build, all you've got to do is define the
 // version of Scala you'd like your project to use.
 
 // ============================================================================
 
-// Lines like the above defining `scalaVersion` are called "settings" Settings
+// Lines like the above defining `scalaVersion` are called "settings". Settings
 // are key/value pairs. In the case of `scalaVersion`, the key is "scalaVersion"
-// and the value is "2.12.1"
+// and the value is "2.13.1"
 
 // It's possible to define many kinds of settings, such as:
 
@@ -23,17 +23,18 @@ version := "1.0"
 
 // Want to use a published library in your project?
 // You can define other libraries as dependencies in your build like this:
-libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
+libraryDependencies += "org.typelevel" %% "cats-core" % "2.0.0"
+libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the cats dependency to the set of dependencies that sbt will go
 // and fetch when it starts up.
-// Now, in any Scala file, you can import classes, objects, etc, from cats with
+// Now, in any Scala file, you can import classes, objects, etc., from cats with
 // a regular import.
 
 // TIP: To find the "dependency" that you need to add to the
 // `libraryDependencies` set, which in the above example looks like this:
 
-// "org.typelevel" %% "cats" % "0.9.0"
+// "org.typelevel" %% "cats-core" % "2.0.0"
 
 // You can use Scaladex, an index of all known published Scala libraries. There,
 // after you find the library you want, you can just copy/paste the dependency
@@ -43,7 +44,7 @@ libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
 // dependency from the sbt box on the right-hand side of the screen.
 
 // IMPORTANT NOTE: while build files look _kind of_ like regular Scala, it's
-// imporant to note that syntax in *.sbt files doesn't always behave like
+// important to note that syntax in *.sbt files doesn't always behave like
 // regular Scala. For example, notice in this build file that it's not required
 // to put our settings into an enclosing object or class. Always remember that
 // sbt is a bit different, semantically, than vanilla Scala.
@@ -65,12 +66,10 @@ libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
 //   settings(
 //     inThisBuild(List(
 //       organization := "ch.epfl.scala",
-//       scalaVersion := "2.12.1"
+//       scalaVersion := "2.13.1"
 //     )),
 //     name := "hello-world"
 //   )
 
 // To learn more about multi-project builds, head over to the official sbt
 // documentation at http://www.scala-sbt.org/documentation.html
-
-libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.5"

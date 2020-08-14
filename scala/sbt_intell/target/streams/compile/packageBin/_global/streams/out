@@ -1,0 +1,17 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/sbt_intell_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/example[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/example/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/example/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/Main$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/example/Main$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	retail_db[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/retail_db[0m
+[0m[[0m[0mdebug[0m] [0m[0m	retail_db/GetRevenuePerOrder$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/retail_db/GetRevenuePerOrder$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	retail_db/GetRevenuePerOrder.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/bodong/github/lab/scala/sbt_intell/target/scala-2.12/classes/retail_db/GetRevenuePerOrder.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

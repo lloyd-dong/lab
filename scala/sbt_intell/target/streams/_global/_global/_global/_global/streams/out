@@ -1,0 +1,43 @@
+[debug] [watch] [sbt_intell / Compile / run] Found inputs: /Users/bodong/github/lab/scala/sbt_intell/*.{java,scala},/Users/bodong/github/lab/scala/sbt_intell/src/main/java/**/*.{java,scala},/Users/bodong/github/lab/scala/sbt_intell/src/main/resources/**/*,/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/**/*.{java,scala},/Users/bodong/github/lab/scala/sbt_intell/src/main/scala-2.12/**/*.{java,scala}
+[info] 1. Monitoring source files for sbt_intell/run...
+[info]    Press <enter> to interrupt or '?' for more options.
+[debug] sbt_intell / Compile / run - Accepted event for /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received Creation(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Received event for path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] sbt_intell / Compile / run - Accepted event for /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received event for path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Received file event actions: /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala -> Trigger. Returning: (Creation(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala, 2020-Feb-20 11:40:43.770 CT),Trigger)
+[info] Build triggered by /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala. Running 'run'.
+[debug] [watch] [debug] Received file event Trigger for Creation(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala, 2020-Feb-20 11:40:43.770 CT).
+[info] 2. Monitoring source files for sbt_intell/run...
+[info]    Press <enter> to interrupt or '?' for more options.
+[debug] Discarding entry for recently updated path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala. This event occurred 7 ms since the last event for this path.
+[debug] sbt_intell / Compile / run - Accepted event for /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Received event for path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] sbt_intell / Compile / run - Accepted event for /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received event for path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Creating update event for modified /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala (previous stamp: Hash(a7cd7b7e2d0361c3dcd8b5f64fa8ca9e8965d4aa), current stamp: Hash(10750bd58a262dfc415fe884a34bc667439134a6))
+[debug] Received file event actions: /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala -> Trigger. Returning: (Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala, 2020-Feb-20 11:43:38.168 CT),Trigger)
+[info] Build triggered by /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala. Running 'run'.
+[debug] [watch] [debug] Received file event Trigger for Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala, 2020-Feb-20 11:43:38.168 CT).
+[info] 3. Monitoring source files for sbt_intell/run...
+[info]    Press <enter> to interrupt or '?' for more options.
+[debug] Discarding entry for recently updated path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala. This event occurred 1 ms since the last event for this path.
+[debug] sbt_intell / Compile / run - Accepted event for /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Received event for path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received event for path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] sbt_intell / Compile / run - Accepted event for /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala
+[debug] Received Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Creating update event for modified /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala (previous stamp: Hash(10750bd58a262dfc415fe884a34bc667439134a6), current stamp: Hash(5a21537d91f1aabfa1a99fe72091697a22bfb784))
+[debug] Received file event actions: /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala -> Trigger. Returning: (Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala, 2020-Feb-20 11:44:02.541 CT),Trigger)
+[info] Build triggered by /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala. Running 'run'.
+[debug] [watch] [debug] Received file event Trigger for Update(/Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala, 2020-Feb-20 11:44:02.541 CT).
+[info] 4. Monitoring source files for sbt_intell/run...
+[info]    Press <enter> to interrupt or '?' for more options.
+[debug] Discarding entry for recently updated path /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/retail_db/GetRevenuePerOrder.scala. This event occurred 0 ms since the last event for this path.
+[debug] [watch] [debug] Received input event: Run().
+[debug] [watch] [debug] Received input event: Run().

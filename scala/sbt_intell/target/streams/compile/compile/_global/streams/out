@@ -1,0 +1,4 @@
+[error] /Users/bodong/github/lab/scala/sbt_intell/src/main/scala/example/Main.scala:5:36: not found: value ages
+[error]   println(s"the oldest person is ${ages.max}")
+[error]                                    ^
+[error] one error found
