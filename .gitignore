@@ -19,6 +19,7 @@ ML_for_Hackers/
 
 think_stats/book/thinkstats.pdf
 think_stats/book/thinkstats2.pdf
+<<<<<<< HEAD
 
 
 gene/bwa.kit/*
@@ -28,3 +29,7 @@ gene/data/*
 temp/*
 
 *.ipynb
+=======
+think_stats/data/
+think_stats/output/
+.terraform/
