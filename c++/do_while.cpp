@@ -8,7 +8,8 @@ int main(){
     int sum = 0;
     int remain = number;
     do{
-        sum += remain %10;
+        cout << "remain = " << remain << endl;
+        sum += remain %10;        
         remain /= 10;
     }while(remain >0);
     cout << "digits sum of " << number << " = " << sum << endl;

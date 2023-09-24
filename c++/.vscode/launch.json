@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "A",
+            "request": "launch",
+            "mainClass": "A",
+            "projectName": "c++_5a9e615d"
+        },
+        {
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -16,6 +23,5 @@
             "externalConsole": true,
             "MIMode": "lldb"
         }
-
     ]
 }
