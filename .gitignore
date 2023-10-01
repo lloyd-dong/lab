@@ -23,3 +23,4 @@ think_stats/book/thinkstats.pdf
 think_stats/book/thinkstats2.pdf
 think_stats/data/
 think_stats/output/
+*.dSYM/
