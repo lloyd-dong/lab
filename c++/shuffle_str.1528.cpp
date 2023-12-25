@@ -5,11 +5,11 @@ using namespace std;
 class Solution {
     public:
         string restoreString(string s, vector<int>& indices) {
-            string res = s;
+            string dest = s;
             for (int i = 0; i < indices.size(); ++i) {
-                res[indices[i]] = s[i];
+                dest[indices[i]] = s[i];
             }
-            return res;
+            return dest;
         }
 };
 
